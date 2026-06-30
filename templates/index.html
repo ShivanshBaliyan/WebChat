@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebChat</title>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 WebChat</h1>
+            <p>Real-time messaging</p>
+        </div>
+        
+        <div id="join-section">
+            <div class="messages" style="justify-content: center; align-items: center;">
+                <div style="text-align: center;"> 
+                    <h3>Welcome to Chat</h3>
+                    <p style="color: #999; margin: 20px 0;">Enter your username to join</p>
+                    <input type="text" id="username-input" class="form-control-chat" placeholder="Enter your username" autocomplete="off">
+                    <button onclick="joinChat()" class="btn-join">Join Chat</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="chat-section" style="display: none;">
+            <div class="messages" id="messages"></div>
+            <footer class="input-area">
+                <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+                <button onclick="sendMessage()">Send</button>
+            </footer>
+        </div>
+        
+        <div id="status" class="status disconnected">Disconnected</div>
+
+        <script src="/static/js/script.js"></script>
+        <script>
+            // Allow Enter key to send message
+            document.addEventListener('DOMContentLoaded', function() {
+                const messageInput = document.getElementById('message-input');
+                const usernameInput = document.getElementById('username-input');
+                
+                messageInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+                
+                usernameInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        joinChat();
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
