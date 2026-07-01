@@ -31,7 +31,7 @@ https://webchat-l64g.onrender.com
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/WebChat.git
+git clone https://github.com/ShivanshBaliyan/WebChat
 cd WebChat
 pip install -r requirements.txt
 uvicorn main:app --reload
